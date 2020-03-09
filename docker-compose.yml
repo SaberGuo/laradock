@@ -106,11 +106,15 @@ services:
           - INSTALL_TERRAFORM=${WORKSPACE_INSTALL_TERRAFORM}
           - INSTALL_DUSK_DEPS=${WORKSPACE_INSTALL_DUSK_DEPS}
           - INSTALL_PG_CLIENT=${WORKSPACE_INSTALL_PG_CLIENT}
+<<<<<<< HEAD
           - INSTALL_PHALCON=${WORKSPACE_INSTALL_PHALCON}
           - INSTALL_SWOOLE=${WORKSPACE_INSTALL_SWOOLE}
           - INSTALL_LIBPNG=${WORKSPACE_INSTALL_LIBPNG}
           - INSTALL_IONCUBE=${WORKSPACE_INSTALL_IONCUBE}
           - INSTALL_MYSQL_CLIENT=${WORKSPACE_INSTALL_MYSQL_CLIENT}
+=======
+          - INSTALL_SWOOLE=${WORKSPACE_INSTALL_SWOOLE}
+>>>>>>> d462adc48c79f6e09641142efbb0f4abfbcbc32d
           - PUID=${WORKSPACE_PUID}
           - PGID=${WORKSPACE_PGID}
           - CHROME_DRIVER_VERSION=${WORKSPACE_CHROME_DRIVER_VERSION}
@@ -468,11 +472,20 @@ services:
 
 ### Redis ################################################
     redis:
-      build: ./redis
+      image: redis:${REDIS_VERSION}
       volumes:
+<<<<<<< HEAD
         - ${DATA_PATH_HOST}/redis:/data
+=======
+        - ./redis/${REDIS_VERSION}:/etc/redis:ro
+        - ${DATA_SAVE_PATH}/redis/data:/data
+        - ./logs/redis:/var/log/redis
+>>>>>>> d462adc48c79f6e09641142efbb0f4abfbcbc32d
       ports:
         - "${REDIS_PORT}:6379"
+      command:
+        - redis-server
+        - /etc/redis/redis.conf
       networks:
         - backend
 

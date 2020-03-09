@@ -3,6 +3,7 @@ server {
     listen 80;
     listen [::]:80;
 
+<<<<<<< HEAD
     # For https
     # listen 443 ssl;
     # listen [::]:443 ssl ipv6only=on;
@@ -10,6 +11,9 @@ server {
     # ssl_certificate_key /etc/nginx/ssl/default.key;
 
     server_name laravel.test;
+=======
+    server_name laravel.top;
+>>>>>>> d462adc48c79f6e09641142efbb0f4abfbcbc32d
     root /var/www/laravel/public;
     index index.php index.html index.htm;
 

@@ -1,5 +1,6 @@
 {
     "require": {
-
+        "psy/psysh": "@stable",
+        "hirak/prestissimo": "^0.3"
     }
 } 
